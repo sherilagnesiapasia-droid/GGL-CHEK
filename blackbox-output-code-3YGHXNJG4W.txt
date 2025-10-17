@@ -1,0 +1,55 @@
+import React from 'react';
+import { Box, Typography, Tabs, Tab, Card, CardContent, Grid } from '@mui/material';
+import { motion } from 'framer-motion';  // Untuk animasi
+
+function EducationalContent() {
+  const [tab, setTab] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setTab(newValue);
+  };
+
+  const sections = [
+    { title: 'Pengertian', content: 'Gula, garam, dan lemak adalah nutrisi esensial, tapi berlebihan bisa berbahaya. Gula dari makanan manis bisa menyebabkan obesitas. Garam meningkatkan tekanan darah. Lemak jenuh dari makanan olahan bisa menyumbat pembuluh darah. ✨' },
+    { title: 'Penyebab', content: 'Penyebab utama: Konsumsi makanan cepat saji, minuman manis, dan gaya hidup sedentary. Faktor lain: Stres dan kurang olahraga.' },
+    { title: 'Gejala', content: 'Gejala termasuk kelelahan, hipertensi, diabetes, dan kenaikan berat badan. Contoh: Rasa haus berlebih dari gula tinggi.' },
+    { title: 'Pencegahan', content: 'Pencegahan: Batasi asupan harian (gula <50g), pilih makanan segar, olahraga rutin, dan baca label nutrisi.' },
+    { title: 'Penanganan', content: 'Penanganan: Konsultasi dokter, diet sehat, obat jika diperlukan, dan monitor kesehatan. Contoh: Mengurangi garam dengan bumbu alami.' },
+    { title: 'Lainnya', content: 'Fakta menarik: WHO sarankan kurangi GGL untuk hidup lebih panjang! Lihat infografis di bawah.' },
+  ];
+
+  return (
+    <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" sx={{ color: '#9C27B0', marginBottom: 2 }}>Konten Edukasi tentang GGL</Typography>
+      <Tabs value={tab} onChange={handleChange} sx={{ marginBottom: 2, backgroundColor: '#f0f0f0', borderRadius: 2 }}>
+        {sections.map((section, index) => (
+          <Tab key={index} label={section.title} sx={{ color: '#4CAF50' }} />
+        ))}
+      </Tabs>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Card sx={{ backgroundColor: '#e3f2fd', borderRadius: 3, padding: 2 }}>
+          <CardContent>
+            <Typography variant="h6" sx={{ color: '#FF9800' }}>{sections[tab].title}</Typography>
+            <Typography variant="body1">{sections[tab].content}</Typography>
+            {/* Elemen Pendukung: Infografis Sederhana */}
+            <Grid container spacing={2} sx={{ marginTop: 2 }}>
+              <Grid item xs={12} sm={6}>
+                <img src="https://source.unsplash.com/random/400x200/?health" alt="Infografis" style={{ borderRadius: 10 }} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Typography>Video Pendukung: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Tonton di sini</a></Typography>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </Box>
+  );
+}
+
+export default EducationalContent;

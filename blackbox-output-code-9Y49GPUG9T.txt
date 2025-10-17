@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import { Box, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
+import { motion } from 'framer-motion';
+
+function Quiz() {
+  const [answer, setAnswer] = useState('');
+  const [score, setScore] = useState(null);
+
+  const questions = [
+    { q: 'Apa efek utama gula berlebih?', options: ['Obesitas', 'Kekurangan energi', 'Kesehatan kulit'], correct: 'Obesitas' },
+  ];
+
+  const checkAnswer = () => {
+    if (answer === questions[0].correct) {
+      setScore('Benar! ✨ Kamu hebat!');
+    } else {
+      setScore('Salah, coba lagi! Jawaban benar: Obesitas.');
+    }
+  };
+
+  return (
+    <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" sx={{ color: '#9C27B0' }}>Kuis Interaktif: Seberapa Paham Kamu tentang GGL?</Typography>
+      <FormControl>
+        <FormLabel sx={{ color: '#FF9800' }}>{questions[0].q}</FormLabel>
+        <RadioGroup onChange={(e) => setAnswer(e.target.value)}>
+          {questions[0].options.map((option, index) => (
+            <FormControlLabel key={index} value={option} control={<Radio />} label={option} />
+          ))}
+        </RadioGroup>
+        <Button variant="contained" sx={{ backgroundColor: '#4CAF50', marginTop: 2 }} onClick={checkAnswer}>
+          Submit
+        </Button>
+        {score && <Typography sx={{ marginTop: 2, color: '#2196F3' }}>{score}</Typography>}
+      </FormControl>
+      
+      {/* Bagian Penutup: Rekomendasi */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <Typography variant="h5" sx={{ marginTop: 4, color: '#FF9800' }}>Rekomendasi Menu Sehat Rendah GGL</Typography>
+        <Typography>Contoh: Oatmeal dengan buah - Rendah gula dan lemak. Coba sekarang! 🌟</Typography>
+      </motion.div>
+    </Box>
+  );
+}
+
+export default Quiz;
