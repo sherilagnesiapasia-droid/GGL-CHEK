@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGL Aware - Kesadaran Gula dan Lemak</title>
+    
+    <!-- Link ke Bootstrap untuk responsif -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS Custom untuk desain menarik dan berwarna -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Font modern untuk Gen Z */
+            background-color: #f8f9fa; /* Latar netral cerah */
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: #a8e6ce; /* Hijau sehat untuk navbar */
+        }
+        
+        .hero-section {
+            background: linear-gradient(to right, #a8e6ce, #dcedc1); /* Gradasi warna cerah */
+            padding: 50px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .btn-primary {
+            background-color: #ff6b6b; /* Aksen merah muda cerah */
+            border: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff4757; /* Animasi hover */
+        }
+        
+        .info-card {
+            background-color: #dcedc1; /* Biru muda untuk card */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .kalkulator-section, .rekomendasi-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background-color: #a8e6ce;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar untuk navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">GGL Aware</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#info">Info Edukatif</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kalkulator">Kalkulator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rekomendasi">Rekomendasi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Home -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4">GGL Aware!</h1>
+            <p class="lead">Hey Gen Z! Mau tahu bahaya konsumsi gula dan lemak berlebih? Yuk, cegah diabetes, hipertensi, dan kolesterol sekarang!</p>
+            <a href="#kalkulator" class="btn btn-primary btn-lg">Coba Kalkulator Sekarang</a>
+            <img src="https://via.placeholder.com/500x300?text=Ilustrasi+Sehat" alt="Ilustrasi sehat" class="img-fluid mt-3 rounded" style="max-width: 500px;">
+        </div>
+    </section>
+
+    <!-- Section Info Edukatif -->
+    <section id="info" class="container my-5">
+        <h2 class="text-center">Dampak Buruk Konsumsi GGL Berlebih</h2>
+        <div class="info-card">
+            <h3>Diabetes</h3>
+            <p>Konsumsi gula berlebih bisa meningkatkan risiko diabetes tipe 2. Ini terjadi karena gula menumpuk sebagai lemak, membuat tubuh sulit mengontrol gula darah. Gejala: sering haus, lelah, dan berat badan naik. Cegah dengan mengurangi minuman manis!</p>
+        </div>
+        <div class="info-card">
+            <h3>Hipertensi</h3>
+            <p>Lemak jenuh dari makanan berlemak bisa menyempitkan pembuluh darah, menyebabkan tekanan darah tinggi. Dampak: pusing, sakit kepala, dan risiko serangan jantung. Tips: Pilih makanan rendah lemak seperti sayur dan buah.</p>
+        </div>
+        <div class="info-card">
+            <h3>Kolesterol Tinggi</h3>
+            <p>Gula dan lemak berlebih menumpuk sebagai kolesterol jahat, yang bisa menyumbat arteri. Akibatnya, risiko penyakit jantung meningkat. Jaga asupan dengan olahraga rutin dan makan sehat!</p>
+        </div>
+    </section>
+
+    <!-- Section Kalkulator Asupan GGL -->
+    <section id="kalkulator" class="kalkulator-section">
+        <div class="container">
+            <h2 class="text-center">Kalkulator Asupan Gula dan Lemak Harian</h2>
+            <form id="kalkulatorForm">
+                <div class="mb-3">
+                    <label for="usia" class="form-label">Usia (tahun)</label>
+                    <input type="number" class="form-control" id="usia" required>
+                </div>
+                <div class="mb-3">
+                    <label for="berat" class="form-label">Berat Badan (kg)</label>
+                    <input type="number" class="form-control" id="berat" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tinggi" class="form-label">Tinggi Badan (cm)</label>
+                    <input type="number" class="form-control" id="tinggi" required>
+                </div>
+                <div class="mb-3">
+                    <label for="aktivitas" class="form-label">Tingkat Aktivitas</label>
+                    <select class="form-select" id="aktivitas">
+                        <option value="sedentary">Sedentary</option>
+                        <option value="active">Active</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Hitung</button>
+            </form>
+            <div id="hasil" class="mt-4"></div> <!-- Hasil akan ditampilkan di sini -->
+        </div>
+    </section>
+
+    <!-- Section Rekomendasi Menu -->
+    <section id="rekomendasi" class="rekomendasi-section">
+        <div class="container">
+            <h2 class="text-center">Rekomendasi Menu Harian Sehat</h2>
+            <p id="rekomendasiText">Isi rekomendasi akan muncul di sini berdasarkan hasil kalkulator.</p>
+            <!-- Contoh rekomendasi statis, tapi akan diubah dinamis oleh JS -->
+            <div id="menuList" class="mt-3"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 GGL Aware. Berdasarkan sumber seperti WHO. Ini bukan pengganti konsultasi dokter.</p>
+    </footer>
+
+    <!-- Script JavaScript untuk interaktivitas -->
+    <script>
+        document.getElementById('kalkulatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const usia = parseInt(document.getElementById('usia').value);
+            const berat = parseInt(document.getElementById('berat').value);
+            const tinggi = parseInt(document.getElementById('tinggi').value);
+            const aktivitas = document.getElementById('aktivitas').value;
+
+            // Rumus sederhana untuk estimasi (berdasarkan Harris-Benedict)
+            const bmr = (aktivitas === 'sedentary') ? 10 * berat + 6.25 * tinggi - 5 * usia - 161 : 15 * berat + 6.25 * tinggi - 5 * usia - 161;
+            const gulaMax = 50; // Rekomendasi gula maksimal per hari (g)
+            const lemakMax = 70; // Estimasi lemak maksimal
+
+            const hasilDiv = document.getElementById('hasil');
+            hasilDiv.innerHTML = `
+                <h3>Hasil Kalkulasi:</h3>
+                <p>Estimasi Kalori Harian: ${bmr.toFixed(0)} kcal</p>
+                <p>Rekomendasi Gula Maks: ${gulaMax}g/hari</p>
+                <p>Rekomendasi Lemak Maks: ${lemakMax}g/hari</p>
+                <p><strong>${(bmr > 2000) ? 'Waspada! Asupanmu mungkin berlebih, kurangi GGL.' : 'Bagus! Tetap jaga asupan.'}</strong></p>
+            `;
+
+            // Tampilkan rekomendasi berdasarkan hasil
+            const rekomendasiText = document.getElementById('rekomendasiText');
+            const menuList = document.getElementById('menuList');
+            rekomendasiText.innerHTML = 'Berikut rekomendasi menu sehat untukmu:';
+
+            let menus = [
+                'Sarapan: Oatmeal dengan buah segar (rendah gula).',
+                'Makan Siang: Salad sayur dengan ayam panggang (rendah lemak).',
+                'Makan Malam: Nasi merah dengan ikan bakar (seimbang nutrisi).'
+            ];
+
+            if (bmr > 2000) {
+                menus = [
+                    'Sarapan: Smoothie buah tanpa gula tambahan.',
+                    'Makan Siang: Sup sayur dan telur rebus.',
+                    'Makan Malam: Salad hijau dengan minyak zaitun sedikit.'
+                ];
+            }
+
+            menuList.innerHTML = menus.map(menu => `<p class="alert alert-info">${menu}</p>`).join('');
+        });
+    </script>
+
+    <!-- Script Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
